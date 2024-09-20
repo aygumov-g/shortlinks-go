@@ -43,8 +43,8 @@ const FORM_HTML_PAGE = `
 			document.getElementById("oneLabel").innerHTML = "Вставь сюда ссылку, короткую версию которой требуется получить:";
 			document.getElementById("submit").value = "Получить";
 			document.getElementById("submit").onclick = async function() {
+				event.preventDefault();
 				if (document.getElementById("oneInput").value != "") {
-					event.preventDefault();
 					(async function() {
 						try {
 							let response = await fetch("http://localhost:16323", {
