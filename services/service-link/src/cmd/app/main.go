@@ -28,7 +28,8 @@ func main() {
 	router.HandleFunc("/{link_addr_in}", serviceLink.LinkSearch).Methods("GET")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3333"},
+		//AllowedOrigins:   []string{"http://localhost:3333"},
+		AllowedOrigins:   []string{"*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,

@@ -8,6 +8,15 @@ services:
     container_name: application-link
     environment:
       - SERVER_PORT=$SERVER_PORT
+      - BACKEND_SERVER_URL=$BACKEND_SERVER_URL
     ports:
       - "$SERVER_PORT:$SERVER_PORT"
+    restart: always
+  
+  nginx-application-link:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     restart: always

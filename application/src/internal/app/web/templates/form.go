@@ -47,7 +47,7 @@ const FORM_HTML_PAGE = `
 				if (document.getElementById("oneInput").value != "") {
 					(async function() {
 						try {
-							let response = await fetch("http://localhost:16323", {
+							let response = await fetch("{BACKEND_SERVER_URL}", {
 								method: "POST",
 								body: JSON.stringify({
 									"link_addr_out": document.getElementById("oneInput").value
@@ -76,9 +76,9 @@ const FORM_HTML_PAGE = `
 			const text = sessionStorage.getItem("text")
 			if (text != null) {
 				var data = JSON.parse(text)
-				const domain = window.location.protocol + "//" + window.location.host + "/";
-				const text1 = "<pre>Основная: <a href=" + data["link_addr_out"] + ">" + data["link_addr_out"] + "</a></pre>"
-				const text2 = "<pre>Короткая версия: <a href=" + domain + data["link_addr_in"] + ">" + domain + data["link_addr_in"] + "</a></pre>"
+				const domain = window.location.protocol + "//" + window.location.hostname.replace(/xn--s1a/, "у") + "/";
+				const text1 = "<pre>Основная: " + data["link_addr_out"] + "</pre>"
+				const text2 = "<pre>Короткая версия: " + domain + data["link_addr_in"] + "</pre>"
 
 				document.getElementById("oneLabel").innerHTML = text1 + text2
 			} else {
@@ -91,6 +91,8 @@ const FORM_HTML_PAGE = `
 				event.preventDefault();
 				window.location.href = "/";
 			}
+		} else if (!param1) {
+			window.location.href = "/";
 		}
 	</script>
 </body>

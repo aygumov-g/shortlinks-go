@@ -12,7 +12,7 @@ const OTHER_HTML_PAGE = `
     <script>
         (async function() {
             try {
-                let response = await fetch("http://localhost:16323" + window.location.pathname, {
+                let response = await fetch("{BACKEND_SERVER_URL}" + window.location.pathname, {
                     method: "GET"
                 });
                 text = await response.text();

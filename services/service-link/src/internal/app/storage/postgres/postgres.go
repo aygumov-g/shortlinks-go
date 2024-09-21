@@ -42,8 +42,8 @@ func CreateTableOrders(db *DB) error {
 	func() {
 		conn.Exec(context.Background(), "CREATE TABLE IF NOT EXISTS links ()")
 		conn.Exec(context.Background(), "ALTER TABLE links ADD link_id SERIAL PRIMARY KEY NOT NULL")
-		conn.Exec(context.Background(), "ALTER TABLE links ADD link_addr_in VARCHAR(50) NOT NULL")
-		conn.Exec(context.Background(), "ALTER TABLE links ADD link_addr_out VARCHAR(50) NOT NULL")
+		conn.Exec(context.Background(), "ALTER TABLE links ADD link_addr_in VARCHAR(100) NOT NULL")
+		conn.Exec(context.Background(), "ALTER TABLE links ADD link_addr_out VARCHAR(200) NOT NULL")
 	}()
 	func() {
 		conn.Exec(context.Background(), "CREATE INDEX idx_link_addr_in ON links (link_addr_in)")
