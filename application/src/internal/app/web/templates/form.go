@@ -91,7 +91,7 @@ const FORM_HTML_PAGE = `
 				event.preventDefault();
 				window.location.href = "/";
 			}
-		} else if (!param1) {
+		} else {
 			window.location.href = "/";
 		}
 	</script>
